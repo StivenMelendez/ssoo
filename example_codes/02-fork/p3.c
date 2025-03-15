@@ -19,7 +19,7 @@ Para compilar y ejecutar este programa, sigue los siguientes pasos:
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
-
+#include <stddef.h>
 int main(void) {
     pid_t pidchild = fork();
 

@@ -1,8 +1,12 @@
 /*
-Este programa muestra cómo usar la función fork() en C para crear un proceso hijo y obtener información 
-sobre los identificadores de proceso (PID) y los identificadores de proceso padre (PPID).
-El proceso padre crea un proceso hijo utilizando la función fork(). El proceso hijo espera 
-100000 microsegundos (0.1 segundos) utilizando usleep() y luego imprime su PID y PPID. 
+Este programa muestra cómo usar la función fork() 
+en C para crear un proceso hijo y obtener información 
+sobre los identificadores de proceso (PID) 
+y los identificadores de proceso padre (PPID).
+El proceso padre crea un proceso hijo utilizando 
+la función fork(). El proceso hijo espera 
+100000 microsegundos (0.1 segundos) utilizando 
+usleep() y luego imprime su PID y PPID. 
 El proceso padre también imprime su PID y PPID.
 Para compilar y ejecutar este programa, sigue los siguientes pasos:
 1. Abre una terminal.

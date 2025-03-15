@@ -1,6 +1,8 @@
 /*
-Este programa muestra cómo usar la función fork() en C para crear un proceso hijo.
-El proceso padre crea un proceso hijo utilizando la función fork(). El proceso hijo 
+Este programa muestra cómo usar la función fork() 
+en C para crear un proceso hijo.
+El proceso padre crea un proceso hijo utilizando la 
+función fork(). El proceso hijo 
 imprime "Proceso hijo" y el proceso padre imprime "Proceso padre".
 Para compilar y ejecutar este programa, sigue los siguientes pasos:
 1. Abre una terminal.
@@ -17,7 +19,7 @@ Para compilar y ejecutar este programa, sigue los siguientes pasos:
 #include <unistd.h>
 
 int main(void) {
-    pid_t pidchild = fork();
+    pid_t pidchild = fork();//<-- Se crea un proceso hijo
 
     switch (pidchild) {
         case -1: // Error en la ejecución de fork(), se debe implementar la función manejadora del error

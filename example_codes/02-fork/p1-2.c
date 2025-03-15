@@ -1,6 +1,8 @@
 /* 
-Este programa en C imprime los identificadores del proceso actual (PID) y del proceso padre (PPID).
-Estos identificadores son útiles para el seguimiento y control de procesos en sistemas operativos tipo Unix.
+Este programa en C imprime los identificadores del proceso actual 
+(PID) y del proceso padre (PPID).
+Estos identificadores son útiles para el seguimiento y 
+control de procesos en sistemas operativos tipo Unix.
 
 Instrucciones para compilar y ejecutar el programa:
 1. Abre una terminal en tu sistema.

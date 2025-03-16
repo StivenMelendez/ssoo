@@ -18,8 +18,9 @@ int main(void) {
 int cantidad_a_crear(){
     int n = 0;
     do{
-        printf("Ingrese el número de procesos a crear: ");
+        printf("\nIngrese el número de procesos a crear: ");
         scanf("%d", &n);
+        printf("\n");
     }while(n < 1);
 }
 

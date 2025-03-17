@@ -3,52 +3,71 @@
 #include <unistd.h>
 #include <sys/wait.h>
 
-int main(){
-    printf("soy el PADRE, el proceso inicio: \n\n");
+int main() {
+    pid_t hijo_1, hijo_2, hijo_3, hijo_4, hijo_5, hijo_6, hijo_7;
 
-    pid_t pid1, pid2, pid3;
+    // Crear hijo_1
+    hijo_1 = fork();
+    if (hijo_1 == 0) {
+        printf("Soy el hijo_1\n");
 
-    if((pid1 = fork()) == 0){
-        printf("soy el hijo_1\n\n");
-        pid_t pid4, pid5;
-        if((pid4 = fork()) == 0){
-            printf("soy el hijo_4\n\n");
-            exit(EXIT_SUCCESS);
-        }else if((pid5 = fork()) == 0){
-            printf("soy el hijo_5\n\n");
-            exit(EXIT_SUCCESS);
-        }else{
-            waitpid(pid4, NULL, 0);
-            waitpid(pid5, NULL, 0);
-            exit(EXIT_SUCCESS);
+        // Crear hijo_4
+        hijo_4 = fork();
+        if (hijo_4 == 0) {
+            printf("Soy el hijo_4\n");
+            exit(0); // Terminar hijo_4
         }
-    }
 
-    if((pid2 = fork()) == 0){
-        printf("soy el hijo_2\n\n");
-        pid_t pid6, pid7;
-        if((pid6 = fork()) == 0){
-            printf("soy el hijo_6\n\n");
-            exit(EXIT_SUCCESS);
-        }else if((pid7 = fork()) == 0){
-            printf("soy el hijo_7\n\n");
-            exit(EXIT_SUCCESS);
-        }else{
-            waitpid(pid6, NULL, 0);
-            waitpid(pid7, NULL, 0);
-            exit(EXIT_SUCCESS);
+        // Crear hijo_5
+        hijo_5 = fork();
+        if (hijo_5 == 0) {
+            printf("Soy el hijo_5\n");
+            exit(0); // Terminar hijo_5
         }
+
+        // Esperar a que hijo_4 e hijo_5 terminen
+        wait(NULL);
+        wait(NULL);
+        exit(0); // Terminar hijo_1
     }
 
-    if((pid3 = fork()) == 0){
-        printf("soy el hijo_3\n\n");
-        exit(EXIT_SUCCESS);
+    // Crear hijo_2
+    hijo_2 = fork();
+    if (hijo_2 == 0) {
+        printf("Soy el hijo_2\n");
+
+        // Crear hijo_6
+        hijo_6 = fork();
+        if (hijo_6 == 0) {
+            printf("Soy el hijo_6\n");
+            exit(0); // Terminar hijo_6
+        }
+
+        // Crear hijo_7
+        hijo_7 = fork();
+        if (hijo_7 == 0) {
+            printf("Soy el hijo_7\n");
+            exit(0); // Terminar hijo_7
+        }
+
+        // Esperar a que hijo_6 e hijo_7 terminen
+        wait(NULL);
+        wait(NULL);
+        exit(0); // Terminar hijo_2
     }
 
-    waitpid(pid1, NULL, 0);
-    waitpid(pid2, NULL, 0);
-    waitpid(pid3, NULL, 0);
+    // Crear hijo_3
+    hijo_3 = fork();
+    if (hijo_3 == 0) {
+        printf("Soy el hijo_3\n");
+        exit(0); // Terminar hijo_3
+    }
 
-    printf("soy el PADRE, el proceso finalizo\n\n");
+    // Esperar a que todos los hijos terminen
+    wait(NULL);
+    wait(NULL);
+    wait(NULL);
+
+    printf("Soy el proceso padre, todos los hijos terminaron\n");
     return 0;
 }
